@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://postgres:5433/samurai?autoReconnect=true&useSSL=false
+    url: jdbc:postgresql://172.19.0.2:5433/samurai?autoReconnect=true&useSSL=false
     username: samurai
     password: password
   docker:
