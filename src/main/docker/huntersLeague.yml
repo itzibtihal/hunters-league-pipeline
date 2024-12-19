@@ -28,7 +28,7 @@ services:
       - POSTGRES_USER=samurai
       - POSTGRES_PASSWORD=password
     volumes:
-      - ./pgdata:/var/lib/postgresql/data
+      - C:\Users\Youcode\Desktop\pgdata:/var/lib/postgresql/data
     ports:
       - "5433:5432"
     networks:
