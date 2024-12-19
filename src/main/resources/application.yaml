@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://postgres:5433/samurai?autoReconnect=true&useSSL=false
+    username: samurai
+    password: password
+  docker:
+    compose:
+      file: src/main/docker/compose.yml
+      enabled: true
+      lifecycle-management: start_only
+  jpa:
+    properties:
+      hibernate:
+        default_schema: public
+  liquibase:
+    enabled: true
+    change-log: db/changelog/master.yaml
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+server:
+  ssl:
+    enabled: true
+    key-store: classpath:baeldung.p12
+    key-store-type: PKCS12
+    key-store-password: 123456
+  port: 8443
+
+jwt:
+  secret: o8z#b9ca-)s3r@zv#sv-fxk5q&)cdkzhqr!@2bj(6k1n84_8hcdkzhqr!@2bj(6k1n84_8h
+  expiration: 86400000  # 24 hours in milliseconds

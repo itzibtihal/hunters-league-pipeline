@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  samurai_app:
+    image: samurai:latest
+    container_name: samurai_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8443:8443"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/samurai
+      SPRING_DATASOURCE_USERNAME: samurai
+      SPRING_DATASOURCE_PASSWORD: password
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - samurai_network
+
+  postgres:
+    container_name: samurai_db
+    image: postgres:17
+    environment:
+      - POSTGRES_DB=samurai
+      - POSTGRES_USER=samurai
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    networks:
+      - samurai_network
+
+networks:
+  samurai_network:
+    driver: bridge

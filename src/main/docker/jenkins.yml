@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    ports:
+      - "9090:8080"  # Expose Jenkins on port 9090 instead of 8080
+      - "50000:50000"  # For Jenkins agents
+    volumes:
+      - jenkins_home:/var/jenkins_home  # Persistent Jenkins data
+      - /var/run/docker.sock:/var/run/docker.sock  # Allow Jenkins to access Docker
+    environment:
+      JAVA_OPTS: "-Djenkins.install.runSetupWizard=false"  # Disable the initial setup wizard
+    restart: always
+
+volumes:
+  jenkins_home:
