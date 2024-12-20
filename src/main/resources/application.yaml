@@ -18,13 +18,7 @@ spring:
     change-log: db/changelog/master.yaml
   autoconfigure:
     exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
-server:
-  ssl:
- #   enabled: true
-   # key-store: classpath:baeldung.p12
-  #  key-store-type: PKCS12
-   # key-store-password: 123456
-  port: 8443
+
 
 jwt:
   secret: o8z#b9ca-)s3r@zv#sv-fxk5q&)cdkzhqr!@2bj(6k1n84_8hcdkzhqr!@2bj(6k1n84_8h
