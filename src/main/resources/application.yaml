@@ -20,10 +20,10 @@ spring:
     exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
 server:
   ssl:
-    enabled: true
-    key-store: classpath:baeldung.p12
-    key-store-type: PKCS12
-    key-store-password: 123456
+ #   enabled: true
+   # key-store: classpath:baeldung.p12
+  #  key-store-type: PKCS12
+   # key-store-password: 123456
   port: 8443
 
 jwt:
